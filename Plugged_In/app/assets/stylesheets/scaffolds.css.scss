@@ -1,69 +1,82 @@
-body {
-  background-color: #fff;
-  color: #333;
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
+* {
+  box-sizing: border-box;
 }
 
-p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
+body{
+background-color: maroon;
+
 }
 
-pre {
-  background-color: #eee;
-  padding: 10px;
-  font-size: 11px;
-}
 
-a {
-  color: #000;
-  &:visited {
-    color: #666;
-  }
-  &:hover {
-    color: #fff;
-    background-color: #000;
-  }
-}
-
-div {
-  &.field, &.actions {
+header {
+    font-size: 30px;
+    background: rgba(255,255,255,0.6);
+    padding-top: 10px;
+    padding-bottom: 10px;
     margin-bottom: 10px;
-  }
+    text-align: center;
 }
 
-#notice {
-  color: green;
+.landing {
+  background: rgba(255,255,255,0.4);
+  margin-left: 250px;
+  margin-top: 200px;
+  width: 940px;
+  padding: 20px;
+  font-size: 20px;
+  text-align: center;
+
 }
 
-.field_with_errors {
-  padding: 2px;
-  background-color: red;
-  display: table;
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-#error_explanation {
-  width: 450px;
-  border: 2px solid red;
-  padding: 7px;
-  padding-bottom: 0;
-  margin-bottom: 20px;
-  background-color: #f0f0f0;
-  h2 {
-    text-align: left;
-    font-weight: bold;
-    padding: 5px 5px 5px 15px;
-    font-size: 12px;
-    margin: -7px;
-    margin-bottom: 0px;
-    background-color: #c00;
-    color: #fff;
+nav ul li {
+  display: inline-block;
+  width: 20.66667%;
+  margin: 0;
+  margin-right: 10px;
+  border: dotted black;
+  padding: 0;
+}
+nav a {
+  font-family: 'Grand Hotel', cursive;
+  color: #FF4D4D;
+  display: block;
+  font-size: 1.25em;
+  background: white;
+  padding: 15px 0;
+  text-align: center;
+  text-decoration: none;
   }
-  ul li {
-    font-size: 12px;
-    list-style: square;
+
+  a:hover {
+    color: orange;
   }
+
+  .homeaside {
+  display: inline-block;
+  width: 180px;
+  background-color: white;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 20px;
+  float: right;
+  font-family: 'Josefin Slab', serif;
+}
+
+.homemain {
+  background: rgba(255,255,255,0.6);
+
+  width: 740px;
+  padding: 10px;
+  display: inline-block;
+  vertical-align: top;
+  font-size: 20px;
+  text-align: center;
+  color: black;
+  font-family: 'Josefin Slab', serif;
 }

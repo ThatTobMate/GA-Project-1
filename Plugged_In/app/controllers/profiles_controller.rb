@@ -1,6 +1,7 @@
 class ProfilesController < ApplicationController
   # GET /profiles
   # GET /profiles.json
+  before_filter :authenticate_user!, only: :index
   def index
     @profiles = Profile.all
 

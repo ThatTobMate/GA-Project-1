@@ -8,7 +8,7 @@ end
 
 resources :users, only: [:index, :show, :new, :create]
 
-root to: "home#index"
+root to: "landing#index"
 
   resources :songs
 
@@ -17,6 +17,8 @@ root to: "home#index"
 
 
   resources :users
+
+  get "home/index"
 
 
   # The priority is based upon order of creation:

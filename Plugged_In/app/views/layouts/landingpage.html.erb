@@ -8,16 +8,20 @@
 </head>
 <body>
 
+  <header>Plugged-In</header>
+
 <main class="landing">
   <h1>Welcome to Plugged-In!</h1>
   <nav>
       <ul>
-        <li><%= link_to 'Home', root_path%></li>
+        <li><%= link_to 'Home', home_index_path%></li>
         <li><%= link_to 'Profile', profiles_path %></li>
-        <li><%= link_to 'Songs', songs_path %></li>
+        <li><%= link_to 'Music', songs_path %></li>
 
       </ul>
     </nav>
+<% if current_user %>
+<% else %>
     <h1>Log in</h1>
     <%= form_tag sessions_path do %>
       <div class="field">
@@ -29,6 +33,7 @@
         <%= password_field_tag :password %>
       </div>
       <div class="actions"><%= submit_tag "Log in" %></div>
+<% end %>
 <% end %>
     <% if current_user %>
   <p>Hello <%= current_user.email%></p>
