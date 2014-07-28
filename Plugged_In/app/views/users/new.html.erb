@@ -20,7 +20,7 @@
       </div>
       <div class="field">
         <%= f.label :dob %>
-        <%= date_select("user", "dob", order: [:day, :month, :year]) %>
+        <%= date_select("user", "dob", order: [:day, :month, :year], start_year: 1990, end_year: 2014) %>
       </div>
       <div class="field">
       <%= f.label :email %>
