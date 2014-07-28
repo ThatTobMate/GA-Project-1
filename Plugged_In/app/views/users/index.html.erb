@@ -1,0 +1,9 @@
+<h1>Users</h1>
+<% @users.each do |user| %>
+  <%= user.email %> 
+  <%= user.password_digest %> 
+  <% if can? :show, user %>
+    <%= link_to "Show", user %>
+  <% end %>
+  <br>
+<% end %>
