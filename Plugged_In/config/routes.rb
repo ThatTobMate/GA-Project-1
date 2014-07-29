@@ -1,20 +1,16 @@
 PluggedIn::Application.routes.draw do
-
+ map.resources :songs, :has_many => :comments
 resources :sessions, only: [:new, :create] do
   collection do 
     delete nil, to: "sessions#destroy", as: :destroy
   end
 end
 
-resources :users, only: [:index, :show, :new, :create]
+ resources :users, only: [:index, :show, :new, :create]
 
-root to: "landing#index"
+ root to: "landing#index"
 
-  resources :songs
-
-
-  resources :profiles
-
+ resources :profiles
 
   resources :users
 

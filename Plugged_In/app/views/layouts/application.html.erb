@@ -7,6 +7,29 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <% if current_user %>
+  <p>Hello <%= current_user.email%></p>
+  <%= link_to "Log out", destroy_sessions_path, method: :delete %>
+  <%= link_to "Account", users_path %>
+  <% end %>
+    <nav>
+      <ul>
+        <li><%= link_to 'Home', home_index_path%></li>
+        <li><%= link_to 'Profile', profiles_path %></li>
+        <li><%= link_to 'Music', songs_path %></li>
+
+      </ul>
+    </nav>
+
+    <%= search_form_for @q do |f| %>
+  <p>
+    <%= f.label :title_cont %>
+    <%= f.text_field :title_cont %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
 
 <%= yield %>
 

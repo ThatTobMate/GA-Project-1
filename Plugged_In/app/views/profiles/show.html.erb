@@ -9,20 +9,27 @@
   <b>About:</b>
   <%= @profile.about %>
 </p>
-
 <p>
   <b>Avatar:</b>
-  <%= @profile.avatar %>
+  <%= image_tag @profile.avatar.thumb %>
 </p>
 
 <p>
   <b>Background image:</b>
-  <%= @profile.background_image %>
+  <%= image_tag @profile.background_image.thumb %>
 </p>
 
 <p>
   <b>Header image:</b>
-  <%= @profile.header_image %>
+  <%= image_tag @profile.header_image.thumb %>
+</p>
+
+<p>
+  <b>Song:</b>
+
+  <% @profile.songs.each do |song| %>
+      <%= audio_tag(song.tune, controls: true) %></audio>
+  <% end %>
 </p>
 
 

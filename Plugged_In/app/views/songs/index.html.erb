@@ -10,6 +10,7 @@
     <th></th>
     <th></th>
   </tr>
+<p>
 
 <% @songs.each do |song| %>
   <tr>
@@ -17,6 +18,8 @@
     <td><%= song.artist %></td>
     <td><%= song.title %></td>
     <td><%= song.genre %></td>
+    <td><%= audio_tag song.tune, controls: true %></td>
+
     <td><%= link_to 'Show', song %></td>
     <td><%= link_to 'Edit', edit_song_path(song) %></td>
     <td><%= link_to 'Destroy', song, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -3,7 +3,7 @@ class SongsController < ApplicationController
   # GET /songs.json
   before_filter :authenticate_user!, only: :index
   def index
-    @songs = Song.all
+    # @songs = Song.all
 
     respond_to do |format|
       format.html # index.html.erb
