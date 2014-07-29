@@ -10,14 +10,19 @@ end
 
  root to: "landing#index"
 
- resources :songs, :has_many => :comments
+ resources :songs do 
+  resources :comments
+ end
 
  resources :profiles do 
-    resources :albums
+    resources :albums do
+      resources :pictures
+    end
   end 
+  
  resources :users
 
- resources :pictures
+
 
 
  

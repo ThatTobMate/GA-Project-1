@@ -14,6 +14,8 @@ class AlbumsController < ApplicationController
   end
 
   def new
+    @profile = current_user.profile
+
     @album = Album.new
   end
 
@@ -23,11 +25,13 @@ class AlbumsController < ApplicationController
   end
 
   def create
+    @profile = current_user.profile
+
     @album = Album.new(params[:album])
 
     respond_to do |format|
-      if @picture.save
-        format.html { redirect_to @album, notice: 'Picture was successfully created.' }
+      if @album.save
+        format.html { redirect_to [@profile, @album], notice: 'Picture was successfully created.' }
         format.json { render json: @album, status: :created, location: @album }
       else
         format.html { render action: "new" }

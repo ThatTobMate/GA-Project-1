@@ -15,7 +15,7 @@
     <nav>
       <ul>
         <li><%= link_to 'Home', home_index_path%></li>
-        <li><%= link_to 'Profile', profiles_path %></li>
+        <li><%= link_to 'Profile', current_user.profile %></li>
         <li><%= link_to 'Music', songs_path %></li>
 
       </ul>

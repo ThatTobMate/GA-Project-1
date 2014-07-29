@@ -1,7 +1,7 @@
 class PicturesController < ApplicationController
 
   def index
-    @profile = Profile.find(params[:profile_id])
+    @album = Album.find(params[:album_id])
 
     @pictures = @album.image
   end
