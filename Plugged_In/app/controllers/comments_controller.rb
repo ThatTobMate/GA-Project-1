@@ -1,13 +1,13 @@
 class CommentsController < ApplicationController
 def index
-  # @multi = find_multi
-  # @comments = @multi.comments
+  @multi = find_multi
+  @comments = @multi.comments
 end
 
 def create
-  # @multi = find_multi
-  # @comment = @multi.comments.build(params[:comment])
-  # if @comment.save
+  @multi = find_multi
+  @comment = @multi.comments.build(params[:comment])
+  if @comment.save
     flash[:notice] = "Successfully created comment."
     redirect_to :id => nil
   else

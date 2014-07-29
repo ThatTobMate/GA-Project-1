@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @profile.user_id %>
+</p>
+
+<p>
+  <b>About:</b>
+  <%= @profile.about %>
+</p>
+<p>
+  <b>Avatar:</b>
+  <%= image_tag @profile.avatar.thumb %>
+</p>
+
+<p>
+  <b>Background image:</b>
+  <%= image_tag @profile.background_image.thumb %>
+</p>
+
+<p>
+  <b>Header image:</b>
+  <%= image_tag @profile.header_image.thumb %>
+</p>
+
+<p>
+  <b>Song:</b>
+
+  <% @profile.songs.each do |song| %>
+      <%= audio_tag(song.tune, controls: true) %></audio>
+  <% end %>
+</p>
+
+
+<%= link_to 'Edit', edit_profile_album_path(@album) %> |
+<%= link_to 'Back', profile_album_path %>
