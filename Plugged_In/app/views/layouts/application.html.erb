@@ -5,15 +5,15 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Cinzel' rel='stylesheet' type='text/css'>
 </head>
 <body  style="background: url(<%=current_user.profile.background_image%>)">
   <header style="background: url(<%=current_user.profile.header_image%>)">
-
-  <div><%= yield(:header)%></div>
+  <div></div>
   <section class="search">
     <%= search_form_for @q do |f| %>
       <p>
-       <%= f.text_field :title_or_genre_cont %>
+       <%= f.text_field :title_or_genre_or_artist_cont %>
         <%= f.submit %>
       </p>
     <% end %>

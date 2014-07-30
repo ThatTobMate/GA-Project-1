@@ -4,6 +4,7 @@
 
 body{
 background-color: lightblue;
+font-family: 'Cinzel', serif;
 
 }
 
@@ -11,12 +12,22 @@ background-color: lightblue;
 header {
     font-size: 30px;
     background: rgba(255,255,255,0.6);
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 0px;
+    padding-bottom: 0px;
     margin-bottom: 10px;
     margin-left: 50px;
     margin-right: 50px;
     text-align: center;
+
+}
+
+header div {
+  height: 264px;
+  background-image: url("/assets/alpha.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  float: center;
+
 }
 
 .account {
@@ -31,7 +42,6 @@ header {
   text-align: left;
   width: 500px;
   padding-left: 20px;
-  padding-top: 100px;
 }
 
 #q_title_or_profile_about_cont {
@@ -68,22 +78,28 @@ nav ul li {
   width: 20.66667%;
   margin: 0;
   margin-right: 10px;
-  border: dotted black;
   padding: 0;
+  box-shadow: 5px 5px 10px #666;
 }
 nav a {
-  font-family: 'Grand Hotel', cursive;
-  color: #FF4D4D;
+  font-family: 'Cinzel', serif;
+  color: white;
   display: block;
   font-size: 1.25em;
-  background: white;
+  background: rgb(0,0,128);
   padding: 15px 0;
   text-align: center;
   text-decoration: none;
+  border: solid white;
+  }
+
+  nav a:hover {
+    background-color: white;
+    border: solid rgb(0,0,128);
   }
 
   a:hover {
-    color: orange;
+    color: rgb(0,0,128);
   }
 
   .homeaside {
@@ -106,7 +122,6 @@ nav a {
   font-size: 20px;
   text-align: center;
   color: black;
-  font-family: 'Josefin Slab', serif;
 }
 main {
   background: rgba(255,255,255,0.6);
@@ -118,7 +133,6 @@ main {
   font-size: 20px;
   text-align: center;
   color: black;
-  font-family: 'Josefin Slab', serif;
 }
 
 aside {
@@ -133,11 +147,12 @@ aside {
   margin-right: 50px;
   float: right;
   font-family: 'Josefin Slab', serif;
-    border-radius: 100px;
+  border-radius: 100px;
 }
 
 .aside_image {
   text-align: center;
   padding-top: 10px;
+  border-radius: 100px;
 
 }
