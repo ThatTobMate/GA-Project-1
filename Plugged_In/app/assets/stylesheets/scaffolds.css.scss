@@ -17,6 +17,29 @@ header {
     text-align: center;
 }
 
+.account {
+  font-size: 15px;
+  width: 300px;
+  float: right;
+}
+
+.search {
+  text-align: left;
+  width: 500px;
+}
+
+#q_title_or_profile_about_cont {
+  font-size: 15px;
+  width: 350px;
+  height: 30px;
+}
+
+.search input {
+
+  font-size: 15px;
+
+}
+
 .landing {
   background: rgba(255,255,255,0.4);
   margin-left: 250px;
@@ -71,7 +94,19 @@ nav a {
 .homemain {
   background: rgba(255,255,255,0.6);
 
-  width: 740px;
+  width: 940px;
+  padding: 10px;
+  display: inline-block;
+  vertical-align: top;
+  font-size: 20px;
+  text-align: center;
+  color: black;
+  font-family: 'Josefin Slab', serif;
+}
+main {
+  background: rgba(255,255,255,0.6);
+  margin-left: 50px;
+  width: 960px;
   padding: 10px;
   display: inline-block;
   vertical-align: top;

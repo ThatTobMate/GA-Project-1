@@ -1,10 +1,17 @@
 <p id="notice"><%= notice %></p>
+<p><%= @album.title %></p>
+<% @album.pictures.each do |picture| %>
 
-<p>
-  <b>User:</b>
-  <%= @album.profile.user.email %>
-</p>
+<%= picture.caption %>
+<%= picture.description %>
+<%= image_tag picture.image %>
+
+<% end %>
 
 
-<%= link_to 'Edit', edit_profile_album_path(@album) %> |
-<%= link_to 'Back', profile_album_path %>
+
+
+
+
+<%= link_to 'Edit', edit_profile_album_path(@album.profile.id, @album.id) %> |
+<%= link_to 'Back', profile_albums_path %>

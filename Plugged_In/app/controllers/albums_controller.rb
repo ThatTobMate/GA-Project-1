@@ -21,6 +21,7 @@ class AlbumsController < ApplicationController
 
   # GET /songs/1/edit
   def edit
+    @profile = current_user.profile
     @album = Album.find(params[:id])
   end
 
@@ -42,11 +43,14 @@ class AlbumsController < ApplicationController
 
   def update
     @album = Album.find(params[:id])
+    @profile = Profile.find(params[:profile_id])
 
     respond_to do |format|
-      if @picture.update_attributes(params[:album])
-        format.html { redirect_to @album, notice: 'album was successfully updated.' }
+      if @album.update_attributes(params[:album])
+        format.html { redirect_to profile_album_path(@profile,@album), notice: 'album was successfully updated.' }
         format.json { head :no_content }
+
+        
       else
         format.html { render action: "edit" }
         format.json { render json: @album.errors, status: :unprocessable_entity }

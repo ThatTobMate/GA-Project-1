@@ -4,4 +4,5 @@ class Song < ActiveRecord::Base
 
   belongs_to :profile
   has_many :comments, :as => :multi
+  has_many :song_comments
 end

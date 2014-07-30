@@ -38,7 +38,7 @@ class UsersController < ApplicationController
     @user = User.create(params[:user])
     if @user.save
       session[:user_id] = @user.id
-      redirect_to home_index_path, notice: "Signed up!"
+      redirect_to new_profile_path, notice: "Signed up! Now create your profile"
     else
       render :new
     end

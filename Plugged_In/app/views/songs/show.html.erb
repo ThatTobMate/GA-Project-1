@@ -2,7 +2,7 @@
 
 <p>
   <b>Profile:</b>
-  <%= @song.profile_id %>
+  <%= link_to @song.profile.user.first_name + " " + @song.profile.user.last_name, profile_path(@song.profile.user.id)%>
 </p>
 
 <p>
@@ -27,3 +27,27 @@
 
 <%= link_to 'Edit', edit_song_path(@song) %> |
 <%= link_to 'Back', songs_path %>
+
+
+<%= form_for [@song , @song_comment] do |f| %>
+  <% if @song_comment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@song_comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+
+      <ul>
+      <% @song_comment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :content %><br />
+    <%= f.text_field :content %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -11,9 +11,9 @@ end
  root to: "landing#index"
 
  resources :songs do 
-  resources :comments
+  resources :song_comments
  end
-
+ 
  resources :profiles do 
     resources :albums do
       resources :pictures

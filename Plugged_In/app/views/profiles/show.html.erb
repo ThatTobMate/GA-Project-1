@@ -1,4 +1,13 @@
+<% content_for :header do %>
+  <p>
+      <%= image_tag @profile.avatar.thumb %>
+  </p>
+<% end %>
+
 <p id="notice"><%= notice %></p>
+
+<div class="background_image"<%= @profile.background_image%>
+
 
 <p>
   <b>User:</b>
@@ -8,10 +17,6 @@
 <p>
   <b>About:</b>
   <%= @profile.about %>
-</p>
-<p>
-  <b>Avatar:</b>
-  <%= image_tag @profile.avatar.thumb %>
 </p>
 
 <p>
@@ -31,6 +36,7 @@
       <%= audio_tag(song.tune, controls: true) %></audio>
   <% end %>
 </p>
-
+</div>
 
 <%= link_to 'Edit', edit_profile_path(@profile) %> 
+<%= link_to 'Galleries', profile_albums_path(@profile) %> 

@@ -6,9 +6,9 @@
     <td><%= picture.caption %></td>
     <td><%= picture.description %></td>
     <td><%= image_tag picture.image.thumb %></td>
-    <td><%= link_to 'Show', picture %></td>
-    <td><%= link_to 'Edit', edit_picture_path(picture) %></td>
-    <td><%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Show', profile_album_picture_path(picture.album.profile.id, picture.album.id, picture.id) %></td>
+    <td><%= link_to 'Edit', edit_profile_album_picture_path(picture.album.profile.id, picture.album.id, picture.id) %></td>
+    <td><%=link_to 'Destroy', profile_album_picture_path(picture.album.profile.id, picture.album.id, picture.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>

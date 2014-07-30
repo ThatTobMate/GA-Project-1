@@ -7,30 +7,38 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <% if current_user %>
-  <p>Hello <%= current_user.email%></p>
-  <%= link_to "Log out", destroy_sessions_path, method: :delete %>
-  <%= link_to "Account", users_path %>
-  <% end %>
-    <nav>
-      <ul>
-        <li><%= link_to 'Home', home_index_path%></li>
-        <li><%= link_to 'Profile', current_user.profile %></li>
-        <li><%= link_to 'Music', songs_path %></li>
-
-      </ul>
-    </nav>
-
+  <header>
+  <section class="account">
+    <% if current_user %>
+    <p>Hello <%= current_user.email%></p>
+    <%= link_to "Log out", destroy_sessions_path, method: :delete %>
+    <%= link_to "Account", users_path %>
+    <% end %>
+  </section>
+  <div><%= yield(:header)%></div>
+  <section class="search">
     <%= search_form_for @q do |f| %>
-  <p>
-    <%= f.text_field :title_or_profile_about_cont %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+      <p>
+       <%= f.text_field :title_or_profile_about_cont %>
+        <%= f.submit %>
+      </p>
+    <% end %>
+  </section>
+</header>
+<main>
+  <nav>
+    <ul>
+      <li><%= link_to 'Home', home_index_path%></li>
+      <% if current_user %>
+        <li><%= link_to 'Profile', current_user.profile %></li>
+      <%end%>
+      <li><%= link_to 'Music', songs_path %></li>
+    </ul>
+  </nav>
 
 <%= yield %>
+
+</main>
 
 </body>
 </html>

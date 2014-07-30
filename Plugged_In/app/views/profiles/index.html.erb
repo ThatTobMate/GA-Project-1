@@ -16,8 +16,12 @@
     <td><%= profile.user.first_name %></td><td><%= profile.user.last_name %></td>
     <td><%= image_tag profile.avatar.thumb %></td>
     <td><%= link_to 'Show', profile %></td>
+    <% if can? :edit, profile %>
     <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
+    <% end %>
+    <% if can? :delete, profile %>
     <td><%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
