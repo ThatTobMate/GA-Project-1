@@ -6,12 +6,11 @@ class Ability
     if user.role? :admin
         can :manage, :all
 
-      elsif user.role? :member
-        can [:update, :delete], User do |profile_ability|
-          profile_ability.id == user.id 
-        end   
-    else
-        can :index, User
-    end
+    elsif user.role? :member
+      can :manage, :all
+    #    can [:update, :delete], Profile do |profile_ability|
+    #    profile_ability.try(:user_id) == current_user
+    #   end
+    end   
   end
 end

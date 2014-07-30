@@ -1,31 +1,22 @@
-<h1>Listing songs</h1>
+<h1>Songs</h1>
+<p>Plug in to your favourite songs</p>
 
-<table>
-  <tr>
-    <th>Profile</th>
-    <th>Artist</th>
-    <th>Title</th>
-    <th>Genre</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-<p>
-
+<section>
 <% @songs.each do |song| %>
-  <tr>
-    <td><%= song.profile_id %></td>
-    <td><%= song.artist %></td>
-    <td><%= song.title %></td>
-    <td><%= song.genre %></td>
-    <td><%= audio_tag song.tune, controls: true %></td>
-
-    <td><%= link_to 'Show', song %></td>
-    <td><%= link_to 'Edit', edit_song_path(song) %></td>
-    <td><%= link_to 'Destroy', song, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+  <p><%= song.profile_id %></p>
+  <p><%= song.artist %></p>
+  <p><%= song.title %></p>
+  <p><%= song.genre %></p>
+  <p><%= audio_tag song.tune, controls: true %></p>
+<nav>
+  <ul>
+  <li><%= link_to 'Show', song %></li>
+  <li><%= link_to 'Edit', edit_song_path(song) %></li>
+  <li><%= link_to 'Destroy', song, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+  </ul>
+</nav>
 <% end %>
-</table>
+</section>
 
 <br />
 

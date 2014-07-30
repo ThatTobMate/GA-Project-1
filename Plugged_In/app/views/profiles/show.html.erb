@@ -1,32 +1,20 @@
-<% content_for :header do %>
-  <p>
-      <%= image_tag @profile.avatar.thumb %>
-  </p>
-<% end %>
+
 
 <p id="notice"><%= notice %></p>
+<header><h1><%= @profile.user.first_name + " " + @profile.user.last_name %></h1></header>
 
-<div class="background_image"<%= @profile.background_image%>
+<div>
 
+  <%= image_tag @profile.avatar.main_image %>
 
 <p>
   <b>User:</b>
-  <%= @profile.user_id %>
+  
 </p>
 
 <p>
   <b>About:</b>
   <%= @profile.about %>
-</p>
-
-<p>
-  <b>Background image:</b>
-  <%= image_tag @profile.background_image.thumb %>
-</p>
-
-<p>
-  <b>Header image:</b>
-  <%= image_tag @profile.header_image.thumb %>
 </p>
 
 <p>
@@ -36,7 +24,16 @@
       <%= audio_tag(song.tune, controls: true) %></audio>
   <% end %>
 </p>
+<p>
+  <b>Posts:</b>
+
+  <% @profile.posts.each do |post| %>
+      <%= post.content %></audio>
+  <% end %>
+</p>
 </div>
 
 <%= link_to 'Edit', edit_profile_path(@profile) %> 
 <%= link_to 'Galleries', profile_albums_path(@profile) %> 
+
+<%= link_to 'New Song', new_song_path %>

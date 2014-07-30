@@ -1,0 +1,16 @@
+<h2>Posts</h2>
+  <% if @posts.any? %>
+  <ul class="media-list">
+    <% @posts.each do |post| %>
+      <%= post.content %>
+  <p>
+     <%= link_to 'Delete post', post_path(post), method: 'delete', confirm: 'Are you sure?' %>
+      <%= link_to 'Edit post', edit_post_path(post) %>
+  </p>
+
+    <% end %>
+  </ul>
+  <%= paginate @posts %>
+<% end %>
+
+<%= link_to 'New post', new_post_path %>

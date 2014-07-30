@@ -11,7 +11,7 @@ end
  root to: "landing#index"
 
  resources :songs do 
-  resources :song_comments
+  resources :comments
  end
  
  resources :profiles do 
@@ -21,6 +21,11 @@ end
   end 
   
  resources :users
+
+
+resources :posts do
+  get 'page/:page', action: :index, on: :collection
+end
 
 
 

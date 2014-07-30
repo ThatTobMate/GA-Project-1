@@ -1,12 +1,11 @@
-<h1>Users</h1>
-<% @users.each do |user| %>
-  <%= user.email %>
-  <%= user.first_name %>
-  <%= user.last_name %>
-  <%= user.dob %>
-  <% if can? :show, user %>
-    <%= link_to "Show", user %>
-  <% end %>
-  <%= link_to 'Edit', edit_user_path(user) %>
-  <br>
-<% end %>
+<h1>Account details</h1>
+
+
+Email address: <%= current_user.email %>
+<br>
+Name: <%= current_user.first_name %>
+<%= current_user.last_name %>
+<br>
+Date of Birth: <%= current_user.dob %>
+<br>
+<%= link_to 'Update details', edit_user_path(current_user) %>

@@ -28,11 +28,14 @@ class PicturesController < ApplicationController
   end
 
   def create
+
+    @profile = current_user.profile
+
     @picture = Picture.new(params[:picture])
 
     respond_to do |format|
       if @picture.save
-        format.html { redirect_to @picture, notice: 'Picture was successfully created.' }
+        format.html { redirect_to profile_album_picture_path(@picture.id, {profile_id: @picture.album.profile.id, album_id: @picture.album.id })}
         format.json { render json: @picture, status: :created, location: @picture }
       else
         format.html { render action: "new" }

@@ -7,6 +7,8 @@ gem 'rails', '3.2.17'
 
 gem 'sqlite3'
 
+gem "kaminari"
+
 gem 'railroady'
 
 gem 'bcrypt-ruby', "~> 3.0.0"

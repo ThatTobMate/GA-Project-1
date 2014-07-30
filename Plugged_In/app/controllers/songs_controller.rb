@@ -2,6 +2,7 @@ class SongsController < ApplicationController
   # GET /songs
   # GET /songs.json
   before_filter :authenticate_user!, only: :index
+
   def index
     # @songs = Song.all
 
@@ -15,7 +16,6 @@ class SongsController < ApplicationController
   # GET /songs/1.json
   def show
     @song = Song.find(params[:id])
-    @song_comment = SongComment.new
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @song }

@@ -6,20 +6,14 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-  <header>
-  <section class="account">
-    <% if current_user %>
-    <p>Hello <%= current_user.email%></p>
-    <%= link_to "Log out", destroy_sessions_path, method: :delete %>
-    <%= link_to "Account", users_path %>
-    <% end %>
-  </section>
+<body  style="background: url(<%=current_user.profile.background_image%>)">
+  <header style="background: url(<%=current_user.profile.header_image%>)">
+
   <div><%= yield(:header)%></div>
   <section class="search">
     <%= search_form_for @q do |f| %>
       <p>
-       <%= f.text_field :title_or_profile_about_cont %>
+       <%= f.text_field :title_or_genre_cont %>
         <%= f.submit %>
       </p>
     <% end %>
@@ -39,6 +33,13 @@
 <%= yield %>
 
 </main>
-
+<aside class="account">
+  <div class="aside_image">
+    <%= image_tag current_user.profile.avatar.aside %>
+  </div>
+    <p>Hello <%= welcome %></p>
+    <%= link_to "Log out", destroy_sessions_path, method: :delete %>
+    <%= link_to "Account", users_path %>
+</aside>
 </body>
 </html>

@@ -2,9 +2,9 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter :set_ransack_form_variables
 
- rescue_from CanCan::AccessDenied do |exception|
-  redirect_to root_path, alert: "You can't access this page"
-end
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_path, alert: "You can't access this page"
+  end
 
   def set_ransack_form_variables
     @q = Song.search(params[:q])
@@ -22,5 +22,14 @@ end
     unless current_user
       redirect_to root_path, alert: "You need to be logged in to access this site"
     end
+  end
+
+  def find_multi
+    params.each do |name, value|
+      if name =~ /(.+)_id$/
+        return $1.classify.constantize.find(value)
+      end
+    end
+    nil
   end
 end

@@ -1,0 +1,22 @@
+<%= form_for @post do |f| %>
+  <fieldset>
+    <% if @post.errors.any? %>
+      <div class="alert alert-error">
+        <p><%= pluralize(post.errors.count, "error") %> prohibited this project from being saved:</p>
+        <ul>
+          <% post.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <%= f.label :content %>
+    <%= f.text_area :content %>
+
+
+    <div class="form-actions">
+      <%= f.submit 'Save post', class: 'btn btn-large btn-primary' %>
+    </div>
+  </fielset>
+<% end %>

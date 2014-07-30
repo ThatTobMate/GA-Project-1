@@ -1,0 +1,23 @@
+
+  <b>User:</b>
+  <%= @user.first_name %>
+</p>
+
+<p>
+  <b>About:</b>
+  <%= @user.last_name %>
+</p>
+
+<p>
+  <b>Background image:</b>
+  <%= @user.email %>
+</p>
+
+<p>
+  <b>Header image:</b>
+  <%= @user.dob %>
+</p>
+
+
+<%= link_to 'Edit', edit_user_path(@user) %> 
+
