@@ -25,8 +25,6 @@
         <li class="global_nav_ul_li"><%= link_to 'Profile', current_user.profile %></li>
       <% end %>
       <li class="global_nav_ul_li"><%= link_to 'Music', songs_path %></li>
-
-
     </ul>
   </nav>
 
@@ -49,7 +47,7 @@
        <%= f.text_field :title_or_genre_or_artist_cont, :placeholder => "Search Artist, Title or Genre" %>
        <br>
        <br>
-        <%= f.submit %>
+        <%= f.submit "check out", class: "submit" %>
         <br>
       </p>
     <% end %>

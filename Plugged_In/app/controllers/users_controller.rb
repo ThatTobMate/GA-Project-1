@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_filter :authenticate_user!, only: :index
   def index
     @users = User.all
-    authorize! :index, User
+    authorize! :index, @users
   end
 
   def new

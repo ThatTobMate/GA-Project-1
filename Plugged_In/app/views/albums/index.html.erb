@@ -2,15 +2,20 @@
 
 
 <% @albums.each do |album| %>
-  <tr>
-    <td><%= album.title %></td>
-    <td><%= link_to 'Show', profile_album_path(album.profile.id, album.id) %></td>
-    <td><%= link_to 'Edit', edit_profile_album_path(album.profile.id, album.id) %></td>
-    <td><%= link_to 'Destroy', profile_album_path(album.profile.id, album.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+<section class="albums">
+    <h4><%= album.title %></h4>
+    <nav>
+      <ul>
+        <li><%= link_to 'Show', profile_album_path(album.profile.id, album.id) %></li>
+        <li><%= link_to 'Edit', edit_profile_album_path(album.profile.id, album.id) %></li>
+      </ul>
+    </nav>
 <% end %>
-</table>
+</section>
 
 <br />
-
-<%= link_to 'New Album', new_profile_album_path %>
+<nav>
+  <ul>
+    <li><%= link_to 'New Album', new_profile_album_path %></li>
+  </ul>
+</nav>

@@ -2,8 +2,11 @@
 
 <p>
   <b>Profile:</b>
-  <%= link_to @song.profile.user.first_name + " " + @song.profile.user.last_name, profile_path(@song.profile.user.id)%>
+
+  <%= link_to @song.profile.user.first_name + " " + @song.profile.user.last_name, profile_path(@song.profile.id)%>
+
 </p>
+
 <p>
   <b>Title:</b>
   <%= @song.title %>

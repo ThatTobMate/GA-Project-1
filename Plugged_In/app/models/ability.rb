@@ -46,6 +46,20 @@ class Ability
         comment.user_id == user.id
       end
 
+      can :delete, Album do |album|
+        album.user_id == user.id
+      end
+      can :update, Album do |album|
+        album.user_id == user.id
+      end
+
+      can :delete, Picture do |picture|
+        picture.user_id == user.id
+      end
+      can :update, Picture do |picture|
+        picture.user_id == user.id
+      end
+
     end   
   end
 end

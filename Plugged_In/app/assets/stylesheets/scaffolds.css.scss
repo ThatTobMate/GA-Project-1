@@ -72,19 +72,20 @@ header div {
 nav ul {
   list-style: none;
   margin: 0;
+  padding-top: 10px;
   padding-bottom: 10px;
   border-bottom: solid black;
 
 }
 nav ul li {
   display: inline-block;
-  width: 10.66667%;
+  width: 15.66667%;
   margin: 0;
   margin-right: 10px;
   padding: 0;
   box-shadow: 5px 5px 10px #666;
 }
-nav a {
+nav:not("class=pagination") a {
   font-family: 'Cinzel', serif;
   color: rgb(0,0,128);
   display: block;
@@ -96,7 +97,7 @@ nav a {
   border: solid rgb(0,0,128);
 }
 
-nav a:hover {
+nav:not("class=pagination") a:hover {
   color: white;
   background: rgb(0,0,128);
   border: solid white;
@@ -225,4 +226,10 @@ li p {
  width: 230px;
 border: solid blue;
 background-color: white
+}
+
+.albums {
+  border: solid black;
+  border-bottom: none;
+  margin-top: 10px;
 }

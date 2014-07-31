@@ -31,8 +31,16 @@
 </p>
 </div>
 
-<%= link_to 'Edit', edit_profile_path(@profile) %> 
-<%= link_to 'Galleries', profile_albums_path(@profile) %> 
+<nav>
+  <ul>
+    <li><%= link_to 'Edit', edit_profile_path(@profile) %></li>
+    <li><%= link_to 'Galleries', profile_albums_path(@profile) %></li>
+    <li><%= link_to 'New Song', new_song_path %></li>
+    <li><%= link_to 'New post', new_post_path %></li>
+  </ul>
+</nav>
+ 
 
-<%= link_to 'New Song', new_song_path %>
-<%= link_to 'New post', new_post_path %>
+
+
+
