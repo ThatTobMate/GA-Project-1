@@ -4,12 +4,12 @@
     <% @posts.each do |post| %>
       <%= post.content %>
   <p>
-      <%#if can? :delete, post %>
+      <%if can? :delete, post %>
         <%= link_to 'Delete post', post_path(post), method: 'delete', confirm: 'Are you sure?' %>
-      <%# end %>
-      <%# if can? :update, post %>
+      <% end %>
+      <% if can? :update, post %>
         <%= link_to 'Edit post', edit_post_path(post) %>
-      <%# end%>
+      <% end%>
   </p>
 
     <% end %>

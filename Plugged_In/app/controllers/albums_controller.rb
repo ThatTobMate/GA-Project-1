@@ -8,7 +8,7 @@ class AlbumsController < ApplicationController
   end
 
   def show
-
+  @profile = Profile.find(params[:profile_id])    
 
     @album = Album.find(params[:id])
   end

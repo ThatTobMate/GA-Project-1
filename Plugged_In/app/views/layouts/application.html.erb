@@ -16,14 +16,6 @@
     <header>
 <%end %>
   <div></div>
-  <section class="search">
-    <%= search_form_for @q do |f| %>
-      <p>
-       <%= f.text_field :title_or_genre_or_artist_cont %>
-        <%= f.submit %>
-      </p>
-    <% end %>
-  </section>
 </header>
 <main>
   <nav class="global_nav">
@@ -51,6 +43,17 @@
     <%= link_to "Account", user_path(current_user) %>
     <%= link_to "Log out", destroy_sessions_path, method: :delete %>
     <% end %>
+  <section class="search">
+    <%= search_form_for @q do |f| %>
+      <p>
+       <%= f.text_field :title_or_genre_or_artist_cont, :placeholder => "Search Artist, Title or Genre" %>
+       <br>
+       <br>
+        <%= f.submit %>
+        <br>
+      </p>
+    <% end %>
+  </section>
 </aside>
 
 </body>

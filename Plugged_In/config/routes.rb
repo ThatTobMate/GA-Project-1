@@ -16,7 +16,9 @@ end
  
  resources :profiles do 
     resources :albums do
-      resources :pictures
+      resources :pictures do
+        resources :comments
+      end
     end
   end 
   

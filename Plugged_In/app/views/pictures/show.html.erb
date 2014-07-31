@@ -21,6 +21,30 @@
   <%= @picture.description %>
 </p>
 
+Number of comments: <%= @picture.comments.count %>
+<ul class="comments">
+  <% @comments.each do |comment| %>
+  <li>
+    <%= comment.content%>
+    <p>Created on: <%= comment.created_at %> By <%= comment.user.full_name %><p>
+    <% if can? :delete, comment %>
+      <%= link_to "delete", [@profile, @album, @picture, comment], method: :delete%>
+    <% end %>
+  </li>
+  <% end %>
+</ul>
+
+ <%= paginate @comments %>
+
+
+  <%= form_for [@profile, @album, @picture, Comment.new] do |f| %>
+  <p>
+    <%= f.label :Comment %><br />
+    <%= f.text_area :content %>
+  </p>
+  <p><%= f.submit "Submit" %></p>
+<% end %>
+
 
 <%= link_to 'Edit', edit_profile_album_picture_path(@picture.album.profile.id, @picture.album.id, @picture.id) %> |
-<%= link_to 'Back', profile_album_pictures_path(@picture.album.profile.id, @picture.album.id) %>
+<%= link_to 'Back', profile_albums_path %>

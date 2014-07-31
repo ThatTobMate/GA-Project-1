@@ -5,12 +5,12 @@
 <%= picture.caption %>
 <%= picture.description %>
 <%= image_tag picture.image.main_image %>
-
+<%= link_to 'Show', profile_album_picture_path(picture.album.profile.id, picture.album.id, picture.id) %>
 <% end %>
 
 
 
 
+<a href="/profiles/<%= @profile.id %>/albums/<%= @album.id %>/pictures/new">Add a picture</a>
 
-<%= link_to 'Add Picture', @new_profile_album_picture_path%>|
 <%= link_to 'Back', profile_albums_path %>

@@ -25,12 +25,24 @@ class Ability
           post.profile.user_id == user.id
         end
       end
+      can :delete, Post do |post|
+        if post.profile
+          post.profile.user_id == user.id
+        end
+      end
 
-      can :update, :delete, Song do |song|
+      can :delete, Song do |song|
+        song.profile.user_id == user.id
+      end
+
+      can :update, Song do |song|
         song.profile.user_id == user.id
       end
 
       can :delete, Comment do |comment|
+        comment.user_id == user.id
+      end
+      can :update, Comment do |comment|
         comment.user_id == user.id
       end
 

@@ -17,8 +17,7 @@ class CommentsController < ApplicationController
     @comment = @multi.comments.build(params[:comment])
     @comment.user_id = current_user.id
     if @comment.save
-      flash[:notice] = "Successfully created comment."
-      redirect_to @multi
+      redirect_to :back
     else
       render :action => 'new'
     end
@@ -27,7 +26,7 @@ class CommentsController < ApplicationController
   def destroy
     @multi = find_multi
     @multi.comments.find(params[:id]).destroy
-    redirect_to @multi
+    redirect_to :back
   end
 
 end

@@ -3,8 +3,9 @@
 }
 
 body{
-background-image: url('/assets/rails.png');
 font-family: 'Cinzel', serif;
+background-image: url('/assets/Background.jpg');
+background-size: 100%;
 
 }
 
@@ -60,7 +61,7 @@ header div {
 .landing {
   background: rgba(255,255,255,0.4);
   margin-left: 250px;
-  margin-top: 200px;
+  margin-top: 50px;
   width: 940px;
   padding: 20px;
   font-size: 20px;
@@ -207,4 +208,21 @@ li p {
 .song {
   border-bottom: dotted black;
   padding-bottom: 10px;
+}
+
+#email {
+  margin-left: 44px;
+}
+
+.status {
+   background: rgba(255,255,255,0.6);
+   border-bottom: solid black;
+   border-top: solid black;
+
+}
+
+.submit {
+ width: 230px;
+border: solid blue;
+background-color: white
 }

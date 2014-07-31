@@ -20,10 +20,13 @@
   <% end %>
 </p>
 <p>
-  <b>Posts:</b>
-
+  <b>Status updates:</b>
+<br>
   <% @profile.posts.each do |post| %>
-      <%= post.content %></audio>
+      <p class="status"><%= post.content %></p></audio>
+  <%if can? :delete, post %>
+        <%= link_to 'Delete post', post_path(post), method: 'delete', confirm: 'Are you sure?' %>
+      <% end %>
   <% end %>
 </p>
 </div>
@@ -32,3 +35,4 @@
 <%= link_to 'Galleries', profile_albums_path(@profile) %> 
 
 <%= link_to 'New Song', new_song_path %>
+<%= link_to 'New post', new_post_path %>

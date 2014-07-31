@@ -25,9 +25,14 @@ class ApplicationController < ActionController::Base
   end
 
   def find_multi
+    # TODO: Refactor this !!!! 
+    triple_nested_keys = [ "profile_id", "album_id", "picture_id"]
+    if (params.keys & triple_nested_keys) == triple_nested_keys
+      return Picture.find(params[:picture_id])
+    end
     params.each do |name, value|
       if name =~ /(.+)_id$/
-        return $1.classify.constantize.find(value)
+        return $1.capitalize.constantize.find(value)
       end
     end
     nil

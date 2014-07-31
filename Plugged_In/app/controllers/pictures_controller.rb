@@ -6,17 +6,17 @@ class PicturesController < ApplicationController
   end
 
   def show
-
+    @profile = Profile.find(params[:profile_id])
+    @album = Album.find(params[:album_id])
 
     @picture = Picture.find(params[:id])
+    @comments = @picture.comments.page(params[:page])
   end
 
   def new
-
     @profile = current_user.profile
     @album = Album.find(params[:album_id])
     @picture = Picture.new album_id: @album.id
-
 
   end
 
