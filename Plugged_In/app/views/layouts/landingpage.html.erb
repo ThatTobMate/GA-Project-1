@@ -25,6 +25,11 @@
 <% if current_user %>
 <% else %>
     <h1>Log in</h1>
+    <% flash.each do |name, msg| %>
+      <div class="flash-message flash-message-<%= name %>">
+        <%= msg %>
+      </div>
+<% end %>
     <%= form_tag sessions_path do %>
       <div class="field">
         <%= label_tag :email %>
@@ -41,17 +46,12 @@
   <p>Hello <%= current_user.email%></p>
   <%= link_to "Log out", destroy_sessions_path, method: :delete %>
   <% else %>
+  <br>
+
     <%= link_to "Sign up", new_user_path %>
 
   <% end %>
 
-
-
-<% flash.each do |name, msg| %>
-      <div class="flash-message flash-message-<%= name %>">
-        <%= msg %>
-      </div>
-<% end %>
 </main>
 
   </body>

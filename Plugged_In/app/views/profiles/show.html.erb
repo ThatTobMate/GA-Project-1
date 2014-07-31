@@ -9,6 +9,7 @@
 
 <p>
   <b>About:</b>
+  <br>
   <%= @profile.about %>
 </p>
 
@@ -16,6 +17,9 @@
   <b>Song:</b>
 
   <% @profile.songs.each do |song| %>
+      <%= song.title %> 
+      <br>
+      <br>
       <%= audio_tag(song.tune, controls: true) %></audio>
   <% end %>
 </p>
