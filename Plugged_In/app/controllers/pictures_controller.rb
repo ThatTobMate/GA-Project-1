@@ -26,7 +26,7 @@ before_filter :authenticate_user!, only: :index
     @profile = current_user.profile
     @album = Album.find(params[:album_id])
     @picture = Picture.find(params[:id])
-    authorize! :update, @picture
+    #authorize! :update, @picture
   end
 
   def create
@@ -47,7 +47,7 @@ before_filter :authenticate_user!, only: :index
 
   def update
     @picture = Picture.find(params[:id])
-    authorize! :update, @picture
+    #authorize! :update, @picture
     respond_to do |format|
       if @picture.update_attributes(params[:picture])
         format.html { redirect_to profile_album_picture_path(@picture.id, {profile_id: @picture.album.profile.id, album_id: @picture.album.id })}

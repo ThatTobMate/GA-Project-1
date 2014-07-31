@@ -9,8 +9,12 @@
 <nav>
   <ul>
   <li><%= link_to 'Show', song %></li>
+  <%if can? :update, song %>
   <li><%= link_to 'Edit', edit_song_path(song) %></li>
+  <% end %>
+  <%if can? :delete, song %>
   <li><%= link_to 'Destroy', song, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+  <% end %>
   </ul>
 </nav>
 <% end %>

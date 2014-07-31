@@ -23,7 +23,7 @@ class AlbumsController < ApplicationController
   def edit
     @profile = current_user.profile
     @album = Album.find(params[:id])
-    authorize! :update, @album
+    # authorize! :update, @album
   end
 
   def create
@@ -46,7 +46,7 @@ class AlbumsController < ApplicationController
   def update
     @album = Album.find(params[:id])
     @profile = Profile.find(params[:profile_id])
-    authorize! :update, @album
+    #authorize! :update, @album
 
     respond_to do |format|
       if @album.update_attributes(params[:album])

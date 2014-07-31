@@ -11,7 +11,7 @@ background-size: 100%;
 
 
 header {
-    background-image: url('/assets/alpha.png');
+    background-image: url('/assets/logo1.png');
     font-size: 30px;
     background: rgba(255,255,255,0.6);
     padding-top: 0px;
@@ -25,11 +25,15 @@ header {
 
 header div {
   height: 264px;
-  background-image: url("/assets/alpha.png");
+  background-image: url("/assets/logo1.png");
   background-position: center;
   background-repeat: no-repeat;
   float: center;
 
+}
+
+a {
+  font-family: 'Pacifico', cursive;
 }
 
 .account {
@@ -69,7 +73,7 @@ header div {
 
 }
 
-nav ul {
+nav ul:not(.pagination) {
   list-style: none;
   margin: 0;
   padding-top: 10px;
@@ -77,7 +81,7 @@ nav ul {
   border-bottom: solid black;
 
 }
-nav ul li {
+nav ul li:not(.pagination) {
   display: inline-block;
   width: 15.66667%;
   margin: 0;
@@ -85,8 +89,7 @@ nav ul li {
   padding: 0;
   box-shadow: 5px 5px 10px #666;
 }
-nav:not("class=pagination") a {
-  font-family: 'Cinzel', serif;
+nav:not(.pagination) a {
   color: rgb(0,0,128);
   display: block;
   font-size: 12px;
@@ -97,7 +100,7 @@ nav:not("class=pagination") a {
   border: solid rgb(0,0,128);
 }
 
-nav:not("class=pagination") a:hover {
+nav:not(.pagination) a:hover {
   color: white;
   background: rgb(0,0,128);
   border: solid white;
@@ -119,7 +122,7 @@ nav:not("class=pagination") a:hover {
   box-shadow: 5px 5px 10px #666;
 }
 .global_nav a {
-  font-family: 'Cinzel', serif;
+  font-family: 'Pacifico', cursive;
   color: white;
   display: block;
   font-size: 1.25em;
@@ -171,6 +174,7 @@ main {
   font-size: 20px;
   text-align: center;
   color: black;
+  font-family: 'Montserrat Alternates', sans-serif;
 }
 
 aside {
@@ -184,7 +188,7 @@ aside {
   font-size: 20px;
   margin-right: 50px;
   float: right;
-  font-family: 'Josefin Slab', serif;
+  font-family: 'Pacifico', cursive;
 }
 
 .aside_image {
