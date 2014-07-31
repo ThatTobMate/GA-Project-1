@@ -7,8 +7,14 @@
   <%= csrf_meta_tags %>
   <link href='http://fonts.googleapis.com/css?family=Cinzel' rel='stylesheet' type='text/css'>
 </head>
-<body  style="background: url(<%=current_user.profile.background_image%>)">
-  <header style="background: url(<%=current_user.profile.header_image%>)">
+
+<% if has_profile? %>
+  <body  style="background: url(<%=current_user.profile.background_image%>)">
+    <header style="background: url(<%=current_user.profile.header_image.main_image%>)">
+<% else %>
+  <body>
+    <header>
+<%end %>
   <div></div>
   <section class="search">
     <%= search_form_for @q do |f| %>
@@ -20,26 +26,32 @@
   </section>
 </header>
 <main>
-  <nav>
-    <ul>
-      <li><%= link_to 'Home', home_index_path%></li>
-      <% if current_user %>
-        <li><%= link_to 'Profile', current_user.profile %></li>
-      <%end%>
-      <li><%= link_to 'Music', songs_path %></li>
+  <nav class="global_nav">
+    <ul class="global_nav_ul">
+      <li class="global_nav_ul_li"><%= link_to 'Home', home_index_path%></li>
+      <% if has_profile? %>
+        <li class="global_nav_ul_li"><%= link_to 'Profile', current_user.profile %></li>
+      <% end %>
+      <li class="global_nav_ul_li"><%= link_to 'Music', songs_path %></li>
+
+
     </ul>
   </nav>
 
 <%= yield %>
 
 </main>
+
 <aside class="account">
+  <% if has_profile? %>
   <div class="aside_image">
     <%= image_tag current_user.profile.avatar.aside %>
   </div>
     <p>Hello <%= welcome %></p>
+    <%= link_to "Account", user_path(current_user) %>
     <%= link_to "Log out", destroy_sessions_path, method: :delete %>
-    <%= link_to "Account", users_path %>
+    <% end %>
 </aside>
+
 </body>
 </html>

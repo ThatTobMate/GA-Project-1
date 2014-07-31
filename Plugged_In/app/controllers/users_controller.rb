@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
  
   before_filter :authenticate_user!, only: :index
-
   def index
     @users = User.all
     authorize! :index, User
@@ -18,10 +17,12 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    authorize! :update, @user
   end
     
   def update
     @user = User.find(params[:id])
+    authorize! :update, @user
 
     respond_to do |format|
       if @user.update_attributes(params[:user])

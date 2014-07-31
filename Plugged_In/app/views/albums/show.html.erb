@@ -4,7 +4,7 @@
 
 <%= picture.caption %>
 <%= picture.description %>
-<%= image_tag picture.image %>
+<%= image_tag picture.image.main_image %>
 
 <% end %>
 
@@ -12,6 +12,5 @@
 
 
 
-
-<%= link_to 'Edit', edit_profile_album_path(@album.profile.id, @album.id) %> |
+<%= link_to 'Add Picture', @new_profile_album_picture_path%>|
 <%= link_to 'Back', profile_albums_path %>

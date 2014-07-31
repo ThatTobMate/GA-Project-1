@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
 
+  before_filter :authenticate_user!
+
   def index
     @posts = Post.order(:created_at).page(params[:page])
   end
@@ -10,10 +12,13 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find params[:id]
+    authorize! :update, @post
+
   end
 
   def update
     @post = Post.find params[:id]
+    authorize! :update, @post
 
     if @post.update_attributes params[:post]
       redirect_to @post
@@ -29,7 +34,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new params[:post]
-
+    @post.profile_id = current_user.profile.id
     if @post.save
       redirect_to @post
     else

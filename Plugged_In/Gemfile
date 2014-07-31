@@ -15,14 +15,18 @@ gem 'bcrypt-ruby', "~> 3.0.0"
 
 gem 'cancan'
 
+
+
 gem 'ransack'
 
 gem 'carrierwave'
 
 gem 'rmagick', :require => 'RMagick'
 
+gem "hirb"
 
 group :development, :test do
+
   gem 'pry-rails'
   gem 'pry-stack_explorer'
   gem 'binding_of_caller'

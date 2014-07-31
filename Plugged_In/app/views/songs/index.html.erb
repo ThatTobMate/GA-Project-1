@@ -1,9 +1,7 @@
-<h1>Songs</h1>
-<p>Plug in to your favourite songs</p>
 
+<h1 class="song">Plug in to your favourite songs</h1>
 <section>
 <% @songs.each do |song| %>
-  <p><%= song.profile_id %></p>
   <p><%= song.artist %></p>
   <p><%= song.title %></p>
   <p><%= song.genre %></p>

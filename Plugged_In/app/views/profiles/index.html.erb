@@ -16,7 +16,7 @@
     <td><%= profile.user.first_name %></td><td><%= profile.user.last_name %></td>
     <td><%= image_tag profile.avatar.thumb %></td>
     <td><%= link_to 'Show', profile %></td>
-    <% if can? :edit, profile %>
+    <% if can? :update, profile %>
     <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
     <% end %>
     <% if can? :delete, profile %>

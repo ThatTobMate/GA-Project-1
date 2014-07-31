@@ -15,7 +15,7 @@ class PicturesController < ApplicationController
 
     @profile = current_user.profile
     @album = Album.find(params[:album_id])
-    @picture = Picture.new
+    @picture = Picture.new album_id: @album.id
 
 
   end
@@ -28,7 +28,6 @@ class PicturesController < ApplicationController
   end
 
   def create
-
     @profile = current_user.profile
 
     @picture = Picture.new(params[:picture])
@@ -63,7 +62,7 @@ class PicturesController < ApplicationController
     @picture.destroy
 
     respond_to do |format|
-      format.html { redirect_to pictures_url }
+      format.html { redirect_to profile_albums_path }
       format.json { head :no_content }
     end
   end

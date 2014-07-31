@@ -8,15 +8,15 @@
 </head>
 <body>
 
-  <header>Plugged-In</header>
+  <header><div></div></header>
 
 <main class="landing">
   <h1>Welcome to Plugged-In!</h1>
-  <nav>
-      <ul>
-        <li><%= link_to 'Home', home_index_path%></li>
-        <li><%= link_to 'Profile', profiles_path %></li>
-        <li><%= link_to 'Music', songs_path %></li>
+  <nav class="global_nav">
+      <ul class="global_nav_ul">
+        <li class="global_nav_ul_li"><%= link_to 'Home', home_index_path%></li>
+        <li class="global_nav_ul_li"><%= link_to 'Profile', profiles_path %></li>
+        <li class="global_nav_ul_li"><%= link_to 'Music', songs_path %></li>
 
       </ul>
     </nav>

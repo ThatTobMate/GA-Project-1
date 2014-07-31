@@ -16,6 +16,7 @@ class SongsController < ApplicationController
   # GET /songs/1.json
   def show
     @song = Song.find(params[:id])
+    @comments = @song.comments.page(params[:page])
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @song }
@@ -36,6 +37,7 @@ class SongsController < ApplicationController
   # GET /songs/1/edit
   def edit
     @song = Song.find(params[:id])
+    authorize! :update, @song
   end
 
   # POST /songs
@@ -58,7 +60,7 @@ class SongsController < ApplicationController
   # PUT /songs/1.json
   def update
     @song = Song.find(params[:id])
-
+    authorize! :update, @song
     respond_to do |format|
       if @song.update_attributes(params[:song])
         format.html { redirect_to @song, notice: 'Song was successfully updated.' }

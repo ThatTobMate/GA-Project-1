@@ -21,19 +21,24 @@
   <%= audio_tag @song.tune, controls: true %>
 </p>
 
-Number of comments: <%= @song.comments.count %>
-<ul>
-  <% @song.comments.each do |comment| %>
-  <li>
-    <%= comment.content%>
-  </li>
-  <% end %>
-</ul>
 <br>
 <%= link_to 'Edit', edit_song_path(@song) %> |
 <%= link_to 'Back', songs_path %>
 <br>
+Number of comments: <%= @song.comments.count %>
+<ul class="comments">
+  <% @comments.each do |comment| %>
+  <li>
+    <%= comment.content%>
+    <p>Created on: <%= comment.created_at %> By <%= comment.user.full_name %><p>
+    <% if can? :delete, comment %>
+      <%= link_to "delete", [@song, comment], method: :delete%>
+    <% end %>
+  </li>
+  <% end %>
+</ul>
 
+ <%= paginate @comments %>
 
 
 <%= form_for [@song, Comment.new] do |f| %>

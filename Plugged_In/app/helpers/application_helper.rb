@@ -12,4 +12,13 @@ def welcome
    current_user.first_name + " " + current_user.last_name
  end
 end
+
+def has_profile?
+  if current_user
+    if current_user.profile
+      return true
+    end
+  end
+  false
+end
 end
