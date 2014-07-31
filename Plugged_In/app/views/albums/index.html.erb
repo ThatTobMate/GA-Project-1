@@ -7,7 +7,9 @@
     <nav>
       <ul>
         <li><%= link_to 'Show', profile_album_path(album.profile.id, album.id) %></li>
+        <% if can? :update, album %>
         <li><%= link_to 'Edit', edit_profile_album_path(album.profile.id, album.id) %></li>
+        <% end %>
       </ul>
     </nav>
 <% end %>

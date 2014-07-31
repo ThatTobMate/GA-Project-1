@@ -9,7 +9,7 @@ module ApplicationHelper
 
 def welcome
   if current_user
-   current_user.first_name + " " + current_user.last_name
+   current_user.first_name
  end
 end
 

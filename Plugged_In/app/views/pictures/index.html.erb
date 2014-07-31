@@ -8,7 +8,9 @@
     <td><%= image_tag picture.image.thumb %></td>
     <td><%= link_to 'Show', profile_album_picture_path(picture.album.profile.id, picture.album.id, picture.id) %></td>
     <td><%= link_to 'Edit', edit_profile_album_picture_path(picture.album.profile.id, picture.album.id, picture.id) %></td>
+    <% if can? :delete, picture %>
     <td><%=link_to 'Destroy', profile_album_picture_path(picture.album.profile.id, picture.album.id, picture.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>

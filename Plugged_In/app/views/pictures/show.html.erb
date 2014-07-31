@@ -44,7 +44,12 @@ Number of comments: <%= @picture.comments.count %>
   </p>
   <p><%= f.submit "Submit" %></p>
 <% end %>
-
-
-<%= link_to 'Edit', edit_profile_album_picture_path(@picture.album.profile.id, @picture.album.id, @picture.id) %> |
-<%= link_to 'Back', profile_albums_path %>
+<nav>
+  <ul>
+  <% if can? :delete, @picture %>
+    <li><%=link_to 'Delete', profile_album_picture_path(@picture.album.profile.id, @picture.album.id, @picture.id), method: :delete, data: { confirm: 'Are you sure?' } %></li>
+ <% end%>
+<li><%= link_to 'Edit', edit_profile_album_picture_path(@picture.album.profile.id, @picture.album.id, @picture.id) %></li> 
+<li><%= link_to 'Back', profile_albums_path %></li>
+  </ul>
+</nav>

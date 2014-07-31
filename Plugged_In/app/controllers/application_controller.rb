@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   end
 
   helper_method :current_user
-  # before_filter :can_access_route
+  #before_filter :can_access_route
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
